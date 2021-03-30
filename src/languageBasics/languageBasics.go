@@ -14,19 +14,43 @@ func gettingStarted() {
 
 	var msg string = "Leon Yalin" // use variables
 	fmt.Println(sayHello(msg))
+	fmt.Println(returnTwoValues("lulu"))
+
+	// returning multiple values, _ for omitting variables
+	var firstVal, _ = returnTwoValues("lulu")
+	fmt.Println(firstVal)
 }
 
 func sayHello(msg string) string {
 	return msg
 }
 
+func returnTwoValues(msg string) (string, string) {
+	return msg, "lala"
+}
+
 func variablesAndFunctions() {
 	util.PrintCmd("Variable & Functions", `
-	// TODO:
+	- Like in other languages, we have a couple of primitive types:
+	var name string = "Leon Yalin"
+	var num int = 0
+	func sayHello(mas string) {
+		fmt.Println(msg)
+	}
+	func returnsTwoValues(msg string) (string, string) {
+		return msg, "lala"
+	}
+	`)
+}
+
+func pointers() {
+	util.PrintCmd("Pointers", `
+	lala
 	`)
 }
 
 func LanguageBasics() {
 	gettingStarted()
 	variablesAndFunctions()
+	pointers()
 }
