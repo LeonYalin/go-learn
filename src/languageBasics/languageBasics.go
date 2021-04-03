@@ -3,6 +3,9 @@ package languageBasics
 import (
 	// "fmt"
 	// "log"
+	"log"
+	"time"
+
 	"github.com/LeonYalinAgentVI/go-learn/src/util"
 )
 
@@ -39,6 +42,9 @@ func variablesAndFunctions() {
 	fmt.Println(firstVal)
 
 	We can have a variable on a package scope, like in Javascript.
+
+	Alternative syntax to create a variables: a := "lala"
+	The compiler inferres the variable type and declares it.
 	`)
 }
 
@@ -56,15 +62,27 @@ func pointers() {
 	`)
 }
 
-func typesAndStructs() {
-	util.PrintCmd("Types and structs", `
-	
+func structs() {
+	util.PrintCmd("Structs", `
+	Structs are sets of valuues used together as a structure (same as "type" keyword in typescript).
 	`)
+
+	type Person struct {
+		FirstName string
+		LastName  string
+		Birthday  time.Time
+	}
+
+	person1 := Person{
+		FirstName: "Leon",
+		LastName:  "Yalin",
+	}
+	log.Println(person1)
 }
 
 func LanguageBasics() {
 	gettingStarted()
 	variablesAndFunctions()
 	pointers()
-	typesAndStructs()
+	structs()
 }
