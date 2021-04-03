@@ -2,6 +2,8 @@ package languageBasics
 
 import (
 	"fmt"
+	"log"
+
 	"github.com/LeonYalinAgentVI/go-learn/src/util"
 )
 
@@ -45,8 +47,16 @@ func variablesAndFunctions() {
 
 func pointers() {
 	util.PrintCmd("Pointers", `
-	lala
+	In go, we have pointers and references. References can be used to to get variable memory addresses.
+	Pointers are used to get the value stored in particular memory address (reference).
 	`)
+
+	// Example: change string value using pointers (by reference)
+	var text string = "Hello, Bro"
+	log.Println("Printing a reference to a variable:", &text)
+	var newText *string = &text
+	*newText = "Bye, Broh"
+	log.Println(*newText, text)
 }
 
 func LanguageBasics() {
