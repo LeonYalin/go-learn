@@ -3,8 +3,7 @@ package languageBasics
 import (
 	// "fmt"
 	// "log"
-	"log"
-	"time"
+	// "time"
 
 	"github.com/LeonYalinAgentVI/go-learn/src/util"
 )
@@ -65,7 +64,6 @@ func pointers() {
 func structs() {
 	util.PrintCmd("Structs", `
 	Structs are sets of valuues used together as a structure (same as "type" keyword in typescript).
-	`)
 
 	type Person struct {
 		FirstName string
@@ -78,6 +76,28 @@ func structs() {
 		LastName:  "Yalin",
 	}
 	log.Println(person1)
+	`)
+}
+
+func receivers() {
+	util.PrintCmd("Receivers", `
+	Receivers are "structs with functions": functions that can be bound to structs
+	
+	type Person struct {
+		FirstName string
+		LastName string
+	}
+	
+	func (p *Person) fullName() string {
+		return fmt.Sprintf("Person: %s %s", p.FirstName, p.LastName)
+	}
+
+	person1 := Person {
+		FirstName: "Leon",
+		LastName: "Yalin",
+	}
+	log.Println(person1.fullName())
+	`)
 }
 
 func LanguageBasics() {
@@ -85,4 +105,5 @@ func LanguageBasics() {
 	variablesAndFunctions()
 	pointers()
 	structs()
+	receivers()
 }
