@@ -4,6 +4,7 @@ import (
 	// "fmt"
 	// "log"
 	// "time"
+	// "sort"
 
 	"github.com/LeonYalinAgentVI/go-learn/src/util"
 )
@@ -52,7 +53,8 @@ func pointers() {
 	In go, we have pointers and references. References can be used to to get variable memory addresses.
 	Pointers are used to get the value stored in particular memory address (reference).
 
-	// Example: change string value using pointers (by reference)
+	Example: change string value using pointers (by reference)
+	
 	var text string = "Hello, Bro"
 	log.Println("Printing a reference to a variable:", &text)
 	var newText *string = &text
@@ -100,10 +102,60 @@ func receivers() {
 	`)
 }
 
+func maps() {
+	util.PrintCmd("Maps", `
+	We can create Maps in Go. Maps are similar to maps in other languages.
+
+	myMap := make(map[string]string)
+	myMap["first"] = "First"
+	myMap["second"] = "Second"
+	log.Println(myMap)
+
+	Maps work with structs. For example:
+
+	type Person struct {
+		FirstName string
+		LastName string
+	}
+	myMap2 := make(map[string]Person)
+	myMap2["leon_yalin"] = Person{
+		FirstName: "Leon",
+		LastName: "Yalin",
+	}
+	log.Println(myMap2)
+	`)
+}
+
+func slices() {
+	util.PrintCmd("Slices", `
+	Slices are similar to slices in Python. Slices are arrays with boundaries.
+
+	var mySlice []string
+	mySlice = append(mySlice, "First", "Second", "Third", "Fourth")
+	log.Println(mySlice)
+	
+	We can sort slices
+
+	sort.Strings(mySlice)
+	log.Println(mySlice)
+	
+	Shorthand
+
+	mySlice2 := []int {1, 2, 3, 4, 5}
+	log.Println(mySlice2)
+
+	Use slice of slice :/
+
+	log.Println(mySlice2[2:5])
+	`)
+}
+
 func LanguageBasics() {
 	gettingStarted()
 	variablesAndFunctions()
 	pointers()
 	structs()
 	receivers()
+	maps()
+	slices()
 }
