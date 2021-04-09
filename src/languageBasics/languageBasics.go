@@ -6,6 +6,8 @@ import (
 	// "time"
 	// "sort"
 
+	"log"
+
 	"github.com/LeonYalinAgentVI/go-learn/src/util"
 )
 
@@ -150,7 +152,7 @@ func slices() {
 	`)
 }
 
-func decisiionStructures(){
+func decisionStructures(){
 	util.PrintCmd("Decision structures", `
 	In Go, we have if-else statements & switch cases, just like in every language.
 
@@ -179,6 +181,34 @@ func decisiionStructures(){
 	`)
 }
 
+func loops() {
+	util.PrintCmd("Loops", `
+	In Go, we have a for loops, and range loops (a.k.a. foreach). No While loop in Go.
+
+	Regular for loops
+
+	letters := []string {"a", "b", "c", "d"}
+	for i := 0; i < len(letters); i++ {
+		log.Println(letters[i])
+	}
+
+	For range loops a.k.a. foreach
+
+	for i, item := range letters {
+		log.Println(i, item)
+	}
+
+	For loops with maps
+	
+	myMap := make(map[string]string)
+	myMap["first"] = "First"
+	myMap["second"] = "Second"
+	for key, value := range myMap {
+		log.Println(key, value)
+	}
+	`)
+}
+
 func LanguageBasics() {
 	gettingStarted()
 	variablesAndFunctions()
@@ -187,5 +217,6 @@ func LanguageBasics() {
 	receivers()
 	maps()
 	slices()
-	decisiionStructures()
+	decisionStructures()
+	loops()
 }
