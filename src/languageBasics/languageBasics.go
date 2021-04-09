@@ -150,6 +150,35 @@ func slices() {
 	`)
 }
 
+func decisiionStructures(){
+	util.PrintCmd("Decision structures", `
+	In Go, we have if-else statements & switch cases, just like in every language.
+
+	If-else statements:
+
+	a := 2
+	if a >1 {
+		log.Println("more than 1")
+	} else if a < 0 {
+		log.Println("less than 0")
+	} else {
+		log.Println("other")
+	}
+
+	Switch case statements. There is no need to "return" in switch, it exits automatically
+
+		b := "lala"
+		switch b {
+		case "lala":
+			log.Println("b is lala")
+		case "lulu":
+			log.Println("b is lulu")
+		default:
+			log.Println("b is unknown")
+		}
+	`)
+}
+
 func LanguageBasics() {
 	gettingStarted()
 	variablesAndFunctions()
@@ -158,4 +187,5 @@ func LanguageBasics() {
 	receivers()
 	maps()
 	slices()
+	decisiionStructures()
 }
