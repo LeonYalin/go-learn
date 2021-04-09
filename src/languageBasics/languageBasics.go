@@ -238,7 +238,14 @@ func interfaces() {
 	}
 	greetSomeone(person1)
 	`)
+}
 
+func packages() {
+	util.PrintCmd("Packages", `
+	In order work with package & relative imports, we need to create a go module. It's a file called go.mod and it should be placed in root.
+	We create the module using cli "go mod init <module_name>". As a convention, module_name should match the git repository name.
+	For example, "go mod init github.com/LeonYalinAgentVI/go-learn". After a module wes created, we can start using relative imports.
+	`)
 }
 
 func LanguageBasics() {
@@ -252,4 +259,5 @@ func LanguageBasics() {
 	decisionStructures()
 	loops()
 	interfaces()
+	packages()
 }
