@@ -6,6 +6,7 @@ import (
 	// "time"
 	// "sort"
 
+	"fmt"
 	"log"
 
 	"github.com/LeonYalinAgentVI/go-learn/src/util"
@@ -152,7 +153,7 @@ func slices() {
 	`)
 }
 
-func decisionStructures(){
+func decisionStructures() {
 	util.PrintCmd("Decision structures", `
 	In Go, we have if-else statements & switch cases, just like in every language.
 
@@ -199,7 +200,7 @@ func loops() {
 	}
 
 	For loops with maps
-	
+
 	myMap := make(map[string]string)
 	myMap["first"] = "First"
 	myMap["second"] = "Second"
@@ -207,6 +208,37 @@ func loops() {
 		log.Println(key, value)
 	}
 	`)
+}
+
+func interfaces() {
+	util.PrintCmd("Interfaces", `
+	In Go, Interfaces are similar to Typescript interfaces.
+	To implement an interface, tou just need to implement the required functions via receivers.
+
+	type Person struct {
+		FirstName string
+		LastName string
+	}
+	
+	func (p Person) sayHello() string {
+		return fmt.Sprintf("Hello, I am %s %s", p.FirstName, p.LastName)
+	}
+	
+	type Greet interface {
+		sayHello() string
+	}
+	
+	func greetSomeone(g Greet) {
+		g.sayHello()
+	}
+
+	person1 := Person {
+		FirstName: "Leon",
+		LastName: "Yalin",
+	}
+	greetSomeone(person1)
+	`)
+
 }
 
 func LanguageBasics() {
@@ -219,4 +251,5 @@ func LanguageBasics() {
 	slices()
 	decisionStructures()
 	loops()
+	interfaces()
 }
