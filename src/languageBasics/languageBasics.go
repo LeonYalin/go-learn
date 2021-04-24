@@ -5,9 +5,7 @@ import (
 	// "log"
 	// "time"
 	// "sort"
-
-	"fmt"
-	"log"
+	// "math/rand"
 
 	"github.com/LeonYalinAgentVI/go-learn/src/util"
 )
@@ -248,6 +246,30 @@ func packages() {
 	`)
 }
 
+
+func channels() {
+	util.PrintCmd("Channels", `
+	Channels are a built-in way to pub/sub in Go. We can send and receive data between different parts of the program.
+	
+	const max = 1000
+	
+	func getRandomNum(intChan chan int) {
+		rand.Seed(time.Now().UnixNano()) // this is to avoid getting the same result between runs
+		randomNum := rand.Intn(max)
+		intChan <- randomNum
+	}
+
+	intChan := make(chan int)
+	defer close(intChan) // close the resource when we finish the scoope, a.k.a try-with-resource
+
+	go getRandomNum(intChan)
+	num := <- intChan
+	log.Println("Random number is:", num)
+	
+	`)
+}
+
+
 func LanguageBasics() {
 	gettingStarted()
 	variablesAndFunctions()
@@ -260,4 +282,5 @@ func LanguageBasics() {
 	loops()
 	interfaces()
 	packages()
+	channels()
 }
