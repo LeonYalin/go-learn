@@ -6,6 +6,7 @@ import (
 	// "time"
 	// "sort"
 	// "math/rand"
+	// "encoding/json"
 
 	"github.com/LeonYalinAgentVI/go-learn/src/util"
 )
@@ -246,7 +247,6 @@ func packages() {
 	`)
 }
 
-
 func channels() {
 	util.PrintCmd("Channels", `
 	Channels are a built-in way to pub/sub in Go. We can send and receive data between different parts of the program.
@@ -262,13 +262,54 @@ func channels() {
 	intChan := make(chan int)
 	defer close(intChan) // close the resource when we finish the scoope, a.k.a try-with-resource
 
-	go getRandomNum(intChan)
+	go getRandomNum(intChan) // run a goroutine (mini-thread, like Promises in js)
 	num := <- intChan
 	log.Println("Random number is:", num)
 	
 	`)
 }
 
+func readingAndWritingJSON() {
+	util.PrintCmd("Reading and writing JSON", `
+	In Go, we use marshall/unmarshall (like serialize/deserialize).`+
+		"type Person struct {\n"+
+		"	FirstName string `json:\"first_name\"`\n"+
+		"	LastName  string `json:\"last_name\"`\n"+
+		"	Age       int    `json:\"age\"`\n"+
+		"}\n"+
+		"myJson := `\n"+
+		"[\n"+
+		"	{\n"+
+		"		\"first_name\": \"Leon\",\n"+
+		"		\"last_name\": \"Yalin\",\n"+
+		"		\"age\": 35\n"+
+		"	},\n"+
+		"	{\n"+
+		"		\"first_name\": \"Nelly\",\n"+
+		"		\"last_name\": \"Yalin\",\n"+
+		"		\"age\": 33\n"+
+		"	}\n"+
+		"]`\n"+
+
+		`var unmarshalled []Person
+		err := json.Unmarshal([]byte(myJson), &unmarshalled)
+		if err != nil {
+			log.Println("Error unmarshalling json", err)
+		}
+		log.Println(unmarshalled)
+		
+		mySlice := []Person{
+			{"Leon", "Yalin", 35},
+			{"Nelly", "Yalin", 33},
+		}
+		marshalled, err := json.MarshalIndent(mySlice, "", "    ")
+		if err != nil {
+			log.Printf("Error marshalling")
+		}
+		log.Printf("Marshalled %v", string(marshalled))
+	`)
+
+}
 
 func LanguageBasics() {
 	gettingStarted()
@@ -283,4 +324,5 @@ func LanguageBasics() {
 	interfaces()
 	packages()
 	channels()
+	readingAndWritingJSON()
 }
