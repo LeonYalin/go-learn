@@ -260,10 +260,10 @@ func channels() {
 	}
 
 	intChan := make(chan int)
-	defer close(intChan) // close the resource when we finish the scoope, a.k.a try-with-resource
+	defer close(intChan) // close the resource when we finish running the function, a.k.a try-with-resource
 
 	go getRandomNum(intChan) // run a goroutine (mini-thread, like Promises in js)
-	num := <- intChan
+	num := <- intChan // subscribe to a channel
 	log.Println("Random number is:", num)
 	
 	`)
@@ -308,7 +308,23 @@ func readingAndWritingJSON() {
 		}
 		log.Printf("Marshalled %v", string(marshalled))
 	`)
+}
 
+func writingTests() {
+	util.PrintCmd("Writing tests", `
+	We can write tests in Go in 2 ways: write a function for each test or use data tables.
+
+	1. Functions
+	- We create a separate file with "_test" in filename, e.g. "main_test.go".
+	- We create a function that starts with "Test" in name and imports a testing library, e.g "func TestDivide(t *testing.T) {...}"
+	- We test our function and call t.Error("description") if the function we test raises an error
+
+	2. Data tables
+	- see languageBasics_test.go for details
+
+	to run tests, we use "go test" or "go test -v" for details
+	to view test coverage, use "go test -cover"
+	`)
 }
 
 func LanguageBasics() {
@@ -325,4 +341,5 @@ func LanguageBasics() {
 	packages()
 	channels()
 	readingAndWritingJSON()
+	writingTests()
 }
