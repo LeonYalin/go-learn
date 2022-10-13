@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/LeonYalinAgentVI/go-learn/src/3.routingAndMiddleware/project/pkg/config"
-	"github.com/LeonYalinAgentVI/go-learn/src/3.routingAndMiddleware/project/pkg/models"
+	"github.com/LeonYalinAgentVI/go-learn/src/4.managingSessions/project/pkg/config"
+	"github.com/LeonYalinAgentVI/go-learn/src/4.managingSessions/project/pkg/models"
 )
 
-const tmplPath = "./src/3.routingAndMiddleware/project/templates/"
+const tmplPath = "./src/4.managingSessions/project/templates/"
 
 var app *config.AppConfig
 
