@@ -1,0 +1,18 @@
+{{template "base" .}}
+
+{{define "content"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>This is the about page!</h1>
+                <p>Dynamic data: {{index .StringMap "first"}}</p>
+                <p>CSRFToken: {{.CSRFToken}}</p>
+                <p>{{if ne (index .StringMap "remote_ip") ""}}</p>
+                    Your remote ip address is {{index .StringMap "remote_ip"}}
+                <p>{{else}}</p>
+                    I don't know your ip address yet. Visit the <a href="/">home page</a> so I can set it.
+                <p>{{end}}</p>
+            </div>
+        </div>
+    </div>
+{{end}}
