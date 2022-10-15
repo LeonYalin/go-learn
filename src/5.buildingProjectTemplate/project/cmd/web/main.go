@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/config"
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/handlers"
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/routes"
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/render"
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/middleware"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/config"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/handlers"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/routes"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/render"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/middleware"
 	"github.com/alexedwards/scs/v2"
 )
 

@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/config"
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/models"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/config"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/models"
 )
 
-const tmplPath = "./src/5.workingWithForms/project/templates/"
+const tmplPath = "./src/5.buildingProjectTemplate/project/templates/"
 
 var app *config.AppConfig
 

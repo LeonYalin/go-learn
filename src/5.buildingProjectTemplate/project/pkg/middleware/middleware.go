@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/config"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/config"
 	"github.com/justinas/nosurf"
 )
 

@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/config"
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/models"
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/render"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/config"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/models"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/render"
 )
 
 var Repo *Repository

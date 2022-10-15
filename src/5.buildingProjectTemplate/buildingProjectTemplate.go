@@ -1,8 +1,8 @@
-package workingwithforms
+package buildingprojecttemplate
 
 import "github.com/LeonYalinAgentVI/go-learn/src/util"
 
-func workingWithForms() {
+func buildingProjectTemplate() {
 	util.PrintCmd("Working with forms", `
 	Enabling static files
 	- use router fileServer to serve a static folder, e.g. "static"
@@ -10,6 +10,6 @@ func workingWithForms() {
 	`)
 }
 
-func Forms() {
-	workingWithForms()
+func ProjectTemplate() {
+	buildingProjectTemplate()
 }

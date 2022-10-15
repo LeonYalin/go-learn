@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/LeonYalinAgentVI/go-learn/src/1.languageBasics"
-	"github.com/LeonYalinAgentVI/go-learn/src/2.buildingABasicWebApp"
-	"github.com/LeonYalinAgentVI/go-learn/src/3.routingAndMiddleware"
-	"github.com/LeonYalinAgentVI/go-learn/src/4.managingSessions"
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms"
+	languageBasics "github.com/LeonYalinAgentVI/go-learn/src/1.languageBasics"
+	buildingabasicwebapp "github.com/LeonYalinAgentVI/go-learn/src/2.buildingABasicWebApp"
+	routingandmiddleware "github.com/LeonYalinAgentVI/go-learn/src/3.routingAndMiddleware"
+	managingsessions "github.com/LeonYalinAgentVI/go-learn/src/4.managingSessions"
+	buildingprojecttemplate "github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate"
+	// convertingtogotemplates "github.com/LeonYalinAgentVI/go-learn/src/6.convertingToGoTemplates"
 )
 
 func main() {
@@ -13,5 +14,6 @@ func main() {
 	buildingabasicwebapp.BasicWebApp()
 	routingandmiddleware.RoutingMiddleware()
 	managingsessions.Sessions()
-	workingwithforms.Forms()
+	buildingprojecttemplate.ProjectTemplate()
+	// convertingtogotemplates.ConvertToGoTemplates()
 }

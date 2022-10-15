@@ -3,13 +3,13 @@ package routes
 import (
 	"net/http"
 
-	"github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/handlers"
-	mdlware "github.com/LeonYalinAgentVI/go-learn/src/5.workingWithForms/project/pkg/middleware"
+	"github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/handlers"
+	mdlware "github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate/project/pkg/middleware"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
-const staticPath = "./src/5.workingWithForms/project/static/"
+const staticPath = "./src/5.buildingProjectTemplate/project/static/"
 
 func Routes() http.Handler {
 	router := chi.NewRouter()
