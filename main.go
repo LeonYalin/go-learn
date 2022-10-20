@@ -6,7 +6,7 @@ import (
 	routingandmiddleware "github.com/LeonYalinAgentVI/go-learn/src/3.routingAndMiddleware"
 	managingsessions "github.com/LeonYalinAgentVI/go-learn/src/4.managingSessions"
 	buildingprojecttemplate "github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate"
-	// convertingtogotemplates "github.com/LeonYalinAgentVI/go-learn/src/6.convertingToGoTemplates"
+	convertingtogotemplates "github.com/LeonYalinAgentVI/go-learn/src/6.convertingToGoTemplates"
 )
 
 func main() {
@@ -15,5 +15,5 @@ func main() {
 	routingandmiddleware.RoutingMiddleware()
 	managingsessions.Sessions()
 	buildingprojecttemplate.ProjectTemplate()
-	// convertingtogotemplates.ConvertToGoTemplates()
+	convertingtogotemplates.ConvertToGoTemplates()
 }
