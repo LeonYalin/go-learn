@@ -7,6 +7,7 @@ import (
 	managingsessions "github.com/LeonYalinAgentVI/go-learn/src/4.managingSessions"
 	buildingprojecttemplate "github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate"
 	convertingtogotemplates "github.com/LeonYalinAgentVI/go-learn/src/6.convertingToGoTemplates"
+	writingtests "github.com/LeonYalinAgentVI/go-learn/src/7.writingTests"
 )
 
 func main() {
@@ -16,4 +17,5 @@ func main() {
 	managingsessions.Sessions()
 	buildingprojecttemplate.ProjectTemplate()
 	convertingtogotemplates.ConvertToGoTemplates()
+	writingtests.Tests()
 }
