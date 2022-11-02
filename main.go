@@ -8,6 +8,7 @@ import (
 	buildingprojecttemplate "github.com/LeonYalinAgentVI/go-learn/src/5.buildingProjectTemplate"
 	convertingtogotemplates "github.com/LeonYalinAgentVI/go-learn/src/6.convertingToGoTemplates"
 	writingtests "github.com/LeonYalinAgentVI/go-learn/src/7.writingTests"
+	designingTheDbStructure "github.com/LeonYalinAgentVI/go-learn/src/8.designingTheDbStructure"
 )
 
 func main() {
@@ -18,4 +19,5 @@ func main() {
 	buildingprojecttemplate.ProjectTemplate()
 	convertingtogotemplates.ConvertToGoTemplates()
 	writingtests.Tests()
+	designingTheDbStructure.DbStructure()
 }
