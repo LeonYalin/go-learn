@@ -35,11 +35,11 @@ func getSession() (*http.Request, error) {
 	return r, nil
 }
 
-func TestNewTemplates(t *testing.T) {
+func TestNewRender(t *testing.T) {
 	NewRender(app)
 }
 
-func TestRenderTemplate(t *testing.T) {
+func TestTemplate(t *testing.T) {
 	tmplPath = "./../templates/"
 	tc, err := CreateTemplateCache()
 	if err != nil {
@@ -54,12 +54,12 @@ func TestRenderTemplate(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err = RenderTemplate(&w, r, "home.page.gohtml", &models.TemplateData{})
+	err = Template(&w, r, "home.page.gohtml", &models.TemplateData{})
 	if err != nil {
 		t.Error("error writing template to browser", err)
 	}
 
-	err = RenderTemplate(&w, r, "invalid-address.page.gohtml", &models.TemplateData{})
+	err = Template(&w, r, "invalid-address.page.gohtml", &models.TemplateData{})
 	if err == nil {
 		t.Error("error writing template to browser", err)
 	}

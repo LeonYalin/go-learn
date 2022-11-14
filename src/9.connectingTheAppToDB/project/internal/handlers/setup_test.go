@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"testing"
 	"time"
 
 	"github.com/LeonYalinAgentVI/go-learn/src/9.connectingTheAppToDB/project/internal/config"
@@ -24,8 +25,7 @@ var session *scs.SessionManager
 var staticPath = "./../../static/"
 var tmplPath = "./../../templates/"
 
-func getRoutes() http.Handler {
-	// what am I going to put in the session
+func TestMain(m *testing.M) {
 	gob.Register(models.Reservation{})
 
 	app.InProduction = false
@@ -50,9 +50,13 @@ func getRoutes() http.Handler {
 	app.UseCache = true
 	app.TemplateCache = tc
 
-	render.NewTemplates(&app)
-	InitRepo(&app)
+	InitTestingRepo(&app)
+	render.NewRender(&app)
 
+	os.Exit(m.Run())
+}
+
+func getRoutes() http.Handler {
 	mux := chi.NewRouter()
 
 	mux.Use(middleware.Recoverer)
@@ -67,7 +71,7 @@ func getRoutes() http.Handler {
 
 	mux.Get("/search-availability", Repo.Availability)
 	mux.Post("/search-availability", Repo.PostAvailability)
-	mux.Post("/search-availability-json", Repo.SearchAvailabilityJson)
+	mux.Post("/search-availability-json", Repo.AvailabilityJSON)
 
 	mux.Get("/make-reservation", Repo.Reservation)
 	mux.Post("/make-reservation", Repo.PostReservation)
@@ -99,9 +103,9 @@ func CreateTestTemplateCache() (map[string]*template.Template, error) {
 
 	abs_fname, err := filepath.Abs(tmplPath + "*.page.*")
 
-    if err != nil {
-        log.Fatal(err, abs_fname)
-    }
+	if err != nil {
+		log.Fatal(err, abs_fname)
+	}
 
 	// get all .page.gohtml files
 	pages, err := filepath.Glob(tmplPath + "*.page.*")
