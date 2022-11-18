@@ -1,1 +1,1 @@
-go build -o golearn /Users/lyalin/code/go-learn/src/9.connectingTheAppToDB/project/cmd/web/*.go && ./golearn
+go build -o golearn /Users/lyalin/code/go-learn/src/10.sendingEmails/project/cmd/web/*.go && ./golearn

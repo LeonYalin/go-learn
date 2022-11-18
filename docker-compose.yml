@@ -22,9 +22,15 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"
-    depends_on: 
+    depends_on:
       - postgres
     volumes:
       - pgadmin_data:/etc/pgadmin_data
+  mailhog:
+    image: mailhog/mailhog
+    container_name: 'mailhog'
+    ports:
+      - "1025:1025"
+      - "8025:8025"
 volumes:
   pgadmin_data:
