@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"net/http"
+	"github.com/LeonYalinAgentVI/go-learn/src/10.sendingEmails/project/internal/helpers"
 	"github.com/justinas/nosurf"
+	"net/http"
 )
 
 func WriteToConsole(next http.Handler) http.Handler {
@@ -27,4 +28,15 @@ func NoSurf(next http.Handler) http.Handler {
 
 func SessionLoad(next http.Handler) http.Handler {
 	return app.Session.LoadAndSave(next)
+}
+
+func Auth(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if !helpers.IsAuthenticated(r) {
+			session.Put(r.Context(), "error", "Log in first!")
+			http.Redirect(w, r, "/user/login", http.StatusSeeOther)
+			return
+		}
+		next.ServeHTTP(w, r)
+	})
 }

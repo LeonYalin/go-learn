@@ -33,6 +33,15 @@ func Routes() http.Handler {
 	mux.Post("/make-reservation", handlers.Repo.PostReservation)
 	mux.Get("/reservation-summary", handlers.Repo.ReservationSummary)
 
+	mux.Get("/user/login", handlers.Repo.ShowLogin)
+	mux.Post("/user/login", handlers.Repo.PostShowLogin)
+	mux.Get("/user/logout", handlers.Repo.Logout)
+
+	// available only to logged in users
+	dshGroup := mux.Group(nil)
+	dshGroup.Use(Auth)
+	dshGroup.Get("/admin/dashboard", handlers.Repo.AdminDashboard)
+
 	fileServer := http.FileServer(http.Dir(staticPath))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
 

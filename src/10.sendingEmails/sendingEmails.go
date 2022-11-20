@@ -10,6 +10,18 @@ func sendingEmails() {
 		- We'll use a "foundation for email" framework for styling emails
 		- download a "drip" template, adjust its html and add placeholders to replace with actual content (see basic.html)
 		- use a "Template" param to toggle usage of the email template file (see handlers.go)
+
+	Adding authentication
+	- We'll add a new login page, route and a handler including methods for users CRUD in the dbrepo.
+	- We'll store user passwords as hashed form, using bcrypt (see postgres.go)
+	- We'll store a dummy user in the users table, add the generated password using this code:
+		password := "password"
+		p, _ := bcrypt.GenerateFromPassword([]byte(password), 12)
+		fmt.Println(string(p))
+	- Then, we'll add a "user_id" variable as a DefaultData which is available to evety page
+	- We'll add a login/logout flow, which will create/destroy a user session
+	- We'll create a protected page, which will only be abilable to logged-in users (admin-dashboard)
+	- Also see the "admin" route in routes.go, and an "Auth" middelware
 	`)
 }
 
