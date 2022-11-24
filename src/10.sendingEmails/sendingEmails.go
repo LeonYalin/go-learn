@@ -34,7 +34,25 @@ func adminDashboard() {
 	`)
 }
 
+func deployToProduction() {
+	util.PrintCmd("Deploy to production", `
+		- have some VM, say from Digital Ocean, then connect to it using its ip address
+		- Install a "Caddy" server when deploying the app
+		- Install a "supervisor" package that will help managing running binaries
+		- create a user by typing "adduser" command, then use "sudo" for commands requiring root privileges
+		- Download & install go from url, add to PATH(.bash_profile)
+		- Install git, clone the project
+		- cd to /etc/postgres/12/main, open the "pg_hba.conf" file & set the value from "md5" to "trust" for ipv4 & ipv6 connections (line 1000), then restart postgres.
+		- open DBeaver & configure access to the remote DB (check "Use SSH Tunnel")
+		- install gobuffalo & soda, then run migrations
+		- build & run the application (./run.sh)
+		- Configure Caddy server by adjusting the Caddyfile, then run it on public ip to view the app
+		- Configure supervisor by adjusting "supervisor.conf" to make the app autostart & autorestart
+	`)
+}
+
 func Emails() {
 	sendingEmails()
 	adminDashboard()
+	deployToProduction()
 }
