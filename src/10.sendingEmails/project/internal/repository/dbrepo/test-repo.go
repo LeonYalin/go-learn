@@ -116,3 +116,48 @@ func (m *testDBRepo) UpdateUser(u models.User) error {
 func (m *testDBRepo) Authenticate(email, testPassword string) (int, string, error) {
 	return 1, "", nil
 }
+
+func (m *testDBRepo) AllReservations() ([]models.Reservation, error) {
+	var r []models.Reservation
+	return r, nil
+}
+
+func (m *testDBRepo) AllNewReservations() ([]models.Reservation, error) {
+	var r []models.Reservation
+	return r, nil
+}
+
+func (m *testDBRepo) GetReservationByID(id int) (models.Reservation, error) {
+	var r models.Reservation
+	return r, nil
+}
+
+func (m *testDBRepo) UpdateReservation(u models.Reservation) error {
+	return nil
+}
+
+func (m *testDBRepo) DeleteReservation(id int) error {
+	return nil
+}
+
+func (m *testDBRepo) UpdateProcessedForReservation(id, processed int) error {
+	return nil
+}
+
+func (m *testDBRepo) AllRooms() ([]models.Room, error) {
+	var r []models.Room
+	return r, nil
+}
+
+func (m *testDBRepo) GetRestrictionsForRoomByDate(room_id int, start, end time.Time) ([]models.RoomRestriction, error) {
+	var r []models.RoomRestriction
+	return r, nil
+}
+
+func (m *testDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
+	return nil
+}
+
+func (m *testDBRepo) DeteleBlockById(id int) error {
+	return nil
+}

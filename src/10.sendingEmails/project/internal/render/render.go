@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+	"time"
 
 	"github.com/LeonYalinAgentVI/go-learn/src/10.sendingEmails/project/internal/config"
 	"github.com/LeonYalinAgentVI/go-learn/src/10.sendingEmails/project/internal/models"
@@ -19,6 +20,27 @@ var app *config.AppConfig
 
 func NewRender(ac *config.AppConfig) {
 	app = ac
+}
+
+// functions that will be passed templates
+var functions = template.FuncMap{
+	"humanDate": func(t time.Time) string {
+		return t.Format("2006-01-02")
+	},
+	"formatDate": func(t time.Time, f string) string {
+		return t.Format(f)
+	},
+	"iterate": func(count int) []int {
+		var i int
+		var items []int
+		for i = 0; i < count; i++ {
+			items = append(items, i)
+		}
+		return items
+	},
+	"add": func(a, b int) int {
+		return a + b
+	},
 }
 
 func Template(w http.ResponseWriter, r *http.Request, tpl string, td *models.TemplateData) error {
@@ -67,7 +89,7 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 	}
 	for _, page := range pages {
 		name := filepath.Base(page)
-		tmpl, err := template.New(name).ParseFiles(page)
+		tmpl, err := template.New(name).Funcs(functions).ParseFiles(page)
 		if err != nil {
 			return myCache, err
 		}
@@ -78,6 +100,9 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 		}
 		if len(layouts) > 0 {
 			tmpl, err = tmpl.ParseGlob(tmplPath + "*.layout.*")
+			if err != nil {
+				return myCache, err
+			}
 		}
 
 		myCache[name] = tmpl

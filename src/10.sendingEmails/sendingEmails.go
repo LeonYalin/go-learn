@@ -25,6 +25,16 @@ func sendingEmails() {
 	`)
 }
 
+func adminDashboard() {
+	util.PrintCmd("Admin Dashboard", `
+		- We'll use this free template for admin: https://github.com/BootstrapDash/RoyalUI-Free-Bootstrap-Admin-Template
+		- Download, unzip & copy to /static/admin, create a link in the header menu
+		- create pages for all reservations, new reservations and reservation calendar.
+		- add a js library for handling tables: https://github.com/fiduswriter/Simple-DataTables
+	`)
+}
+
 func Emails() {
 	sendingEmails()
+	adminDashboard()
 }
